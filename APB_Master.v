@@ -68,7 +68,7 @@ module APB_Master (
             PENABLE = 0;
         end
         SETUP:  begin
-            PENABLE = 0;
+            PENABLE = 1;
             if(WRITE & !READ)    begin
                 PWRITE = 1;
                 PADDR = APB_WRITE_PADDR;
@@ -92,17 +92,12 @@ module APB_Master (
         end
         ACCESS: begin
             PENABLE = 1;
-            if(PREADY)  begin
                 if(!WRITE & READ)   begin
                     APB_READ_DATA_OUT = PRDATA;
                 end
                 else    begin
                     APB_READ_DATA_OUT = 0;
                 end
-            end
-            else    begin
-                APB_READ_DATA_OUT = 0;
-            end
         end
         default: begin
             PSELx = 2'b00;
@@ -115,3 +110,4 @@ module APB_Master (
         endcase
     end
 endmodule
+
