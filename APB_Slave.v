@@ -60,7 +60,6 @@ module APB_Slave (
             else begin
                 // IDLE: Slave không được chọn
                 PREADY    <= 0;
-                PSLVERR   <= 0;
                 count_reg <= 0;
                 PRDATA    <= 0;
             end
@@ -68,4 +67,5 @@ module APB_Slave (
     end
 
 endmodule
+
 
