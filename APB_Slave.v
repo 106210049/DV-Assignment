@@ -28,7 +28,7 @@ module APB_Slave (
             if(PSELx) begin
                 // Giai đoạn ACCESS (PENABLE = 1)
                 if(PENABLE) begin
-                    if(count_reg < target_wait) begin
+                    if(count_reg <= target_wait) begin
                         // Chưa đợi đủ số chu kỳ yêu cầu
                         count_reg <= count_reg + 1'b1;
                         PREADY    <= 0;
@@ -68,3 +68,4 @@ module APB_Slave (
     end
 
 endmodule
+
