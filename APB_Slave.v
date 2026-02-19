@@ -41,7 +41,7 @@ module APB_Slave (
                         if(PADDR[30:2] < 1024) begin
                             PSLVERR <= 0;
                             if(PWRITE)
-                                memory[PADDR[30:2]] <= PWDATA;
+                                memory[PADDR[31:2]] <= PWDATA;
                             else
                                 PRDATA <= memory[PADDR[30:2]];
                         end
@@ -66,4 +66,5 @@ module APB_Slave (
             end
         end
     end
+
 endmodule
